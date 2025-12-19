@@ -15,7 +15,7 @@ const TECHNICAL_SKILLS = contentData.TECHNICAL_SKILLS as TechnicalSkill[];
 // Load all markdown files
 const markdownFiles = import.meta.glob('./src/projects/*.md', { query: '?raw', import: 'default' });
 
-type View = 'home' | 'projects' | 'jobs' | 'education' | 'project-detail';
+type View = 'home' | 'projects' | 'jobs' | 'education' | 'project-detail' | 'contact';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
@@ -68,6 +68,9 @@ const App: React.FC = () => {
     } else if (hash === '#projects') {
       window.history.replaceState({ view: 'projects' }, '', '#projects');
       setCurrentView('projects');
+    } else if (hash === '#contact') {
+      window.history.replaceState({ view: 'contact' }, '', '#contact');
+      setCurrentView('contact');
     } else {
       window.history.replaceState({ view: 'home' }, '', '');
       setCurrentView('home');
@@ -144,12 +147,7 @@ const App: React.FC = () => {
             <NavButton target="projects" label="Projects" code="PRJ" />
             <NavButton target="jobs" label="Experience" code="EXP" />
             <NavButton target="education" label="Education" code="EDU" />
-            <a
-              href="mailto:rosaliejanhughes@yahoo.com"
-              className="px-6 py-2 mono text-xs uppercase border border-slate-800 text-slate-300 hover:bg-slate-900 transition-all flex items-center"
-            >
-              Contact
-            </a>
+            <NavButton target="contact" label="Contact" code="CNT" />
           </nav>
         </div>
       </header>
@@ -166,9 +164,12 @@ const App: React.FC = () => {
               />
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 leading-tight">
               Engineering Student
             </h2>
+            <h3 className="text-xl md:text-3xl text-amber-500 font-bold uppercase tracking-widest mb-8">
+              Colorado State University
+            </h3>
 
             <div className="max-w-2xl mx-auto">
               <p className="text-xl md:text-2xl text-slate-400 font-medium italic tracking-tight">
@@ -388,14 +389,80 @@ const App: React.FC = () => {
             </div>
           </div>
         )}
+        {currentView === 'contact' && (
+          <div className="max-w-xl mx-auto animate-in fade-in duration-500">
+            <div className="mb-12 border-l-4 border-amber-500 pl-6">
+              <h2 className="text-5xl font-black uppercase tracking-tighter">Contact</h2>
+              <p className="mono text-slate-400 mt-2">Send a clear transmission.</p>
+            </div>
+
+            <form
+              className="space-y-6"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const name = formData.get('name');
+                const company = formData.get('company');
+                const message = formData.get('message');
+
+                const subject = `[Resume Site Contact] Message from ${name} (${company})`;
+                const body = `Name: ${name}\nCompany: ${company}\n\nMessage:\n${message}`;
+
+                window.open(`mailto:rosaliejanhughes@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+              }}
+            >
+              <div className="space-y-2">
+                <label htmlFor="name" className="block mono text-xs uppercase text-slate-500">Identification / Name</label>
+                <input
+                  required
+                  id="name"
+                  name="name"
+                  type="text"
+                  className="w-full bg-slate-900 border border-slate-800 p-3 text-slate-200 focus:border-amber-500 focus:outline-none transition-colors"
+                  placeholder="ENTER NAME"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="company" className="block mono text-xs uppercase text-slate-500">Organization / Company</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  className="w-full bg-slate-900 border border-slate-800 p-3 text-slate-200 focus:border-amber-500 focus:outline-none transition-colors"
+                  placeholder="ENTER ORGANIZATION"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="block mono text-xs uppercase text-slate-500">Transmission / Message</label>
+                <textarea
+                  required
+                  id="message"
+                  name="message"
+                  rows={6}
+                  className="w-full bg-slate-900 border border-slate-800 p-3 text-slate-200 focus:border-amber-500 focus:outline-none transition-colors resize-none"
+                  placeholder="ENTER MESSAGE CONTENT..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-4 bg-amber-500 text-black font-black uppercase tracking-widest hover:bg-amber-400 transition-colors mt-8"
+              >
+                Send Transmission
+              </button>
+            </form>
+          </div>
+        )}
       </main>
 
       <footer className="mt-32 px-6 py-12 border-t border-slate-900 bg-slate-950/50">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 mono text-[10px]">
           <div>© 2024 ROSALIE HUGHES // ALL SYSTEMS OPERATIONAL</div>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-amber-500">LINKEDIN</a>
-            <a href="#" className="hover:text-amber-500">GITHUB</a>
+            <a href="https://www.linkedin.com/in/rosalie-hughes/" className="hover:text-amber-500">LINKEDIN</a>
+            <a href="https://github.com/rhughes65" className="hover:text-amber-500">GITHUB</a>
             <a href="mailto:rosaliejanhughes@yahoo.com" className="hover:text-amber-500">EMAIL</a>
           </div>
         </div>
