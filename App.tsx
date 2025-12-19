@@ -15,10 +15,10 @@ const TECHNICAL_SKILLS = contentData.TECHNICAL_SKILLS as TechnicalSkill[];
 // Load all markdown files
 const markdownFiles = import.meta.glob('./src/projects/*.md', { query: '?raw', import: 'default' });
 
-type View = 'projects' | 'jobs' | 'education' | 'project-detail';
+type View = 'home' | 'projects' | 'jobs' | 'education' | 'project-detail';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<View>('projects');
+  const [currentView, setCurrentView] = useState<View>('home');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [projectContent, setProjectContent] = useState<string>('');
 
@@ -39,8 +39,8 @@ const App: React.FC = () => {
           setSelectedProject(null);
         }
       } else {
-        // Default to projects if no state (e.g. initial load or empty history)
-        setCurrentView('projects');
+        // Default to home if no state
+        setCurrentView('home');
         setSelectedProject(null);
       }
     };
@@ -65,8 +65,12 @@ const App: React.FC = () => {
     } else if (hash === '#education') {
       window.history.replaceState({ view: 'education' }, '', '#education');
       setCurrentView('education');
-    } else {
+    } else if (hash === '#projects') {
       window.history.replaceState({ view: 'projects' }, '', '#projects');
+      setCurrentView('projects');
+    } else {
+      window.history.replaceState({ view: 'home' }, '', '');
+      setCurrentView('home');
     }
 
     return () => window.removeEventListener('popstate', handlePopState);
@@ -101,7 +105,7 @@ const App: React.FC = () => {
   };
 
   const handleNavClick = (target: View) => {
-    const hash = target === 'projects' ? '#projects' : `#${target}`;
+    const hash = target === 'home' ? '' : target === 'projects' ? '#projects' : `#${target}`;
     window.history.pushState({ view: target }, '', hash);
     setCurrentView(target);
     setSelectedProject(null);
@@ -126,7 +130,7 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div
             className="cursor-pointer group"
-            onClick={() => handleNavClick('projects')}
+            onClick={() => handleNavClick('home')}
           >
             <h1 className="text-3xl font-black tracking-tighter uppercase">
               ROSALIE<span className="text-amber-500">_HUGHES</span>
@@ -151,6 +155,38 @@ const App: React.FC = () => {
       </header>
 
       <main className="max-w-6xl mx-auto px-6 mt-12">
+        {/* HOME VIEW */}
+        {currentView === 'home' && (
+          <div className="flex flex-col items-center justify-center min-h-[60vh] animate-in fade-in duration-500 max-w-4xl mx-auto text-center">
+            <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-amber-500 shadow-2xl mb-12">
+              <img
+                src="/imgs/self2.JPG"
+                alt="Headshot"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight">
+              Engineering Student <span className="text-amber-500">//</span> Teacher <span className="text-amber-500">//</span> Coach
+            </h2>
+
+            <div className="max-w-2xl mx-auto">
+              <p className="text-xl md:text-2xl text-slate-400 font-medium uppercase tracking-tight">
+                Looking to make the world a better place.
+              </p>
+            </div>
+
+            <div className="mt-12 flex gap-4">
+              <button
+                onClick={() => handleNavClick('projects')}
+                className="px-8 py-3 bg-amber-500 text-black font-bold uppercase tracking-widest hover:bg-amber-400 transition-colors"
+              >
+                View Projects
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* PROJECTS VIEW */}
         {(currentView === 'projects') && (
           <div className="animate-in fade-in duration-500">
