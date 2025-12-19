@@ -17,7 +17,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
         <img
           src={project.imageUrl}
           alt={project.title}
-          className="h-full w-full object-cover grayscale transition-all group-hover:grayscale-0 group-hover:scale-105"
+          className="h-full w-full object-cover transition-all group-hover:scale-105"
         />
       </div>
 

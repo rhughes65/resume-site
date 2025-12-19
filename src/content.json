@@ -44,7 +44,7 @@
             "title": "SADA MicroSAT Testing for Artemis II",
             "category": "Aerospace Testing",
             "date": "2023",
-            "description": "Lead testing technician for Solar Array Drive Assemblies (SADA) utilized in NASA's Artemis II flight scheduled for 2026.",
+            "description": "Lead testing technician for Solar Array Drive Assemblies (SADA) utilized in NASA's Artemis II flight scheduled for 2026. Learned NASA STD-001 soldering and cable assembly for testing equipment, manufactured testing fixtures, and maintained thermal vacuum chambers.",
             "markdownFile": "sada-artemis.md",
             "tags": [
                 "TVAC",
@@ -53,7 +53,7 @@
                 "MicroSAT",
                 "Testing"
             ],
-            "imageUrl": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800"
+            "imageUrl": "/imgs/blueorigin.webp"
         },
         {
             "id": "mate-rov",
@@ -69,11 +69,11 @@
                 "Circuit Design",
                 "ML"
             ],
-            "imageUrl": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800"
+            "imageUrl": "/imgs/MATEROV.jpg"
         },
         {
             "id": "mars-rover",
-            "title": "CSGC Mars Rover Prototype",
+            "title": "Colorado Space Grant Consortium Mars Rover Prototype",
             "category": "Space Grant",
             "date": "2021",
             "description": "First prize winner in poster competition for Mars Rover design and production.",
@@ -84,7 +84,66 @@
                 "Project Management",
                 "Electronics"
             ],
-            "imageUrl": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=80&w=800"
+            "imageUrl": "/imgs/rovee.jpg"
+        }
+    ],
+    "EDUCATION": [
+        {
+            "institution": "Colorado State University",
+            "degree": "Bachelor of Science - BS, Mechanical Engineering",
+            "period": "Aug 2024 - May 2027",
+            "gpa": "3.2 GPA",
+            "achievements": [
+                "Activities and societies: Society of Women Engineers (SWE), Ram Rocketry",
+                "Skills: Project Management, Python (Programming Language)"
+            ]
+        },
+        {
+            "institution": "Front Range Community College",
+            "degree": "Associate of Science - AS, Mechanical Engineering",
+            "period": "Aug 2020 - Aug 2025",
+            "gpa": "3.3 GPA",
+            "achievements": [
+                "Creative Writing Award - Poetry - Spring 2022",
+                "President's List Spring 2024",
+                "Skills: Writing, Project Management"
+            ]
+        }
+    ],
+    "CERTIFICATIONS": [
+        {
+            "name": "ANSI/ESD-S20.20-2021: Protection of Electrical and Electronic Parts",
+            "date": "Issued July 2023"
+        },
+        {
+            "name": "SOLIDWORKS Associate C-DT5QSZEVYN",
+            "date": "Issued Dec. 2023"
+        },
+        {
+            "name": "J-STD-001GS Soldered Electrical and Electronic Assemblies Knowledge",
+            "date": ""
+        },
+        {
+            "name": "HAAS CNC Mill/Lathe Operator",
+            "date": "Expected Dec 2025"
+        },
+        {
+            "name": "L1 High Power Rocket Certification",
+            "date": "Expected Jan 2026"
+        }
+    ],
+    "TECHNICAL_SKILLS": [
+        {
+            "name": "C++",
+            "description": "Calculations and Backend Development"
+        },
+        {
+            "name": "Arduino",
+            "description": "Robotic Control and Movement"
+        },
+        {
+            "name": "PYTHON",
+            "description": "Graphical User Interface"
         }
     ]
 }

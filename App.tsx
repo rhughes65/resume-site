@@ -3,16 +3,19 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import contentData from './src/content.json';
 import { ProjectCard } from './components/ProjectCard';
-import { Project, Experience } from './types';
+import { Project, Experience, Education, Certification, TechnicalSkill } from './types';
 
 // Cast content data to verified types
 const EXPERIENCES = contentData.EXPERIENCES as Experience[];
 const PROJECTS = contentData.PROJECTS as Project[];
+const EDUCATION = contentData.EDUCATION as Education[];
+const CERTIFICATIONS = contentData.CERTIFICATIONS as Certification[];
+const TECHNICAL_SKILLS = contentData.TECHNICAL_SKILLS as TechnicalSkill[];
 
 // Load all markdown files
 const markdownFiles = import.meta.glob('./src/projects/*.md', { query: '?raw', import: 'default' });
 
-type View = 'projects' | 'jobs' | 'project-detail';
+type View = 'projects' | 'jobs' | 'education' | 'project-detail';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('projects');
@@ -59,6 +62,9 @@ const App: React.FC = () => {
     } else if (hash === '#jobs') {
       window.history.replaceState({ view: 'jobs' }, '', '#jobs');
       setCurrentView('jobs');
+    } else if (hash === '#education') {
+      window.history.replaceState({ view: 'education' }, '', '#education');
+      setCurrentView('education');
     } else {
       window.history.replaceState({ view: 'projects' }, '', '#projects');
     }
@@ -126,13 +132,14 @@ const App: React.FC = () => {
               ROSALIE<span className="text-amber-500">_HUGHES</span>
             </h1>
             <div className="mono text-[10px] text-slate-400 group-hover:text-amber-500/50 transition-colors">
-              CORE_SYSTEMS_ENGINEER // V3.1
+              MECHANICAL_AND_MECHATRONICS_ENGINEERING_STUDENT // V3.1
             </div>
           </div>
 
           <nav className="flex gap-2">
             <NavButton target="projects" label="Projects" code="PRJ" />
             <NavButton target="jobs" label="Experience" code="EXP" />
+            <NavButton target="education" label="Education" code="EDU" />
             <a
               href="mailto:rosaliejanhughes@yahoo.com"
               className="px-6 py-2 mono text-xs uppercase border border-slate-800 text-slate-300 hover:bg-slate-900 transition-all flex items-center"
@@ -148,8 +155,8 @@ const App: React.FC = () => {
         {(currentView === 'projects') && (
           <div className="animate-in fade-in duration-500">
             <div className="mb-12 border-l-4 border-amber-500 pl-6">
-              <h2 className="text-5xl font-black uppercase tracking-tighter">System Registry</h2>
-              <p className="mono text-slate-400 mt-2">Active project database and hardware documentation.</p>
+              <h2 className="text-5xl font-black uppercase tracking-tighter">Project Registry</h2>
+              <p className="mono text-slate-400 mt-2">Project database and leadership experience.</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -169,7 +176,7 @@ const App: React.FC = () => {
           <div className="max-w-4xl mx-auto animate-in fade-in duration-500">
             <div className="mb-12 border-l-4 border-amber-500 pl-6">
               <h2 className="text-5xl font-black uppercase tracking-tighter">Service Record</h2>
-              <p className="mono text-slate-400 mt-2">Professional mission history and technical roles.</p>
+              <p className="mono text-slate-400 mt-2">Professional experience and technical roles.</p>
             </div>
 
             <div className="space-y-12">
@@ -215,6 +222,80 @@ const App: React.FC = () => {
           </div>
         )}
 
+        {/* EDUCATION VIEW */}
+        {currentView === 'education' && (
+          <div className="max-w-4xl mx-auto animate-in fade-in duration-500">
+            <div className="mb-12 border-l-4 border-amber-500 pl-6">
+              <h2 className="text-5xl font-black uppercase tracking-tighter">Education</h2>
+              <p className="mono text-slate-400 mt-2">Academic credentials and certifications.</p>
+            </div>
+
+            <div className="space-y-12">
+              {EDUCATION.map((edu, idx) => (
+                <div key={idx} className="p-8 bg-slate-900/40 border border-slate-800 relative">
+                  <div className="absolute top-0 right-0 p-4 mono text-[10px] text-slate-600">EDU_{idx}</div>
+                  <div className="mb-6">
+                    <h3 className="text-3xl font-black uppercase leading-none">{edu.institution}</h3>
+                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mt-2">
+                      <span className="text-amber-500 font-bold uppercase text-sm">{edu.degree}</span>
+                      <span className="bg-slate-800 px-3 py-0.5 mono text-xs text-slate-300 border border-slate-700 w-fit">
+                        {edu.period}
+                      </span>
+                    </div>
+                    {edu.gpa && (
+                      <div className="mono text-xs text-slate-500 mt-2">GRADE: {edu.gpa}</div>
+                    )}
+                  </div>
+
+                  {edu.achievements && edu.achievements.length > 0 && (
+                    <ul className="space-y-3">
+                      {edu.achievements.map((item, i) => (
+                        <li key={i} className="flex gap-4 items-start text-slate-400 text-lg uppercase font-medium">
+                          <span className="w-1.5 h-1.5 bg-amber-500 mt-2 flex-shrink-0"></span>
+                          <p className="leading-tight">{item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 grid md:grid-cols-2 gap-8">
+              {/* CERTIFICATIONS */}
+              <div className="p-8 bg-slate-900/40 border border-slate-800 relative">
+                <div className="absolute top-0 right-0 p-4 mono text-[10px] text-slate-600">CERTS</div>
+                <h3 className="text-2xl font-black uppercase tracking-tighter mb-6 text-slate-200">Certifications</h3>
+                <ul className="space-y-4">
+                  {CERTIFICATIONS.map((cert, idx) => (
+                    <li key={idx} className="flex flex-col gap-1">
+                      <span className="text-amber-500 font-bold uppercase text-sm leading-tight">{cert.name}</span>
+                      {cert.date && <span className="mono text-[10px] text-slate-500">{cert.date}</span>}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* TECHNICAL SKILLS */}
+              <div className="p-8 bg-slate-900/40 border border-slate-800 relative">
+                <div className="absolute top-0 right-0 p-4 mono text-[10px] text-slate-600">SKILLS</div>
+                <h3 className="text-2xl font-black uppercase tracking-tighter mb-6 text-slate-200">Technical Skills</h3>
+                <ul className="space-y-6">
+                  {TECHNICAL_SKILLS.map((skill, idx) => (
+                    <li key={idx}>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="w-1.5 h-1.5 bg-amber-500 flex-shrink-0"></span>
+                        <span className="font-bold uppercase text-slate-300">{skill.name}</span>
+                      </div>
+                      <p className="pl-3.5 text-xs mono text-slate-500 uppercase">{skill.description}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* PROJECT DETAIL VIEW */}
         {currentView === 'project-detail' && selectedProject && (
           <div className="max-w-4xl mx-auto animate-in slide-in-from-bottom-4 duration-500">
@@ -230,7 +311,7 @@ const App: React.FC = () => {
                 <img
                   src={selectedProject.imageUrl}
                   alt={selectedProject.title}
-                  className="w-full aspect-video object-cover grayscale brightness-75 border border-slate-800"
+                  className="w-full aspect-video object-cover border border-slate-800"
                 />
               </div>
             </div>

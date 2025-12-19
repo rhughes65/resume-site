@@ -30,3 +30,13 @@ export interface Skill {
   name: string;
   level: 'Expert' | 'Advanced' | 'Intermediate';
 }
+
+export interface Certification {
+  name: string;
+  date: string;
+}
+
+export interface TechnicalSkill {
+  name: string;
+  description: string;
+}
