@@ -1,0 +1,1 @@
+Managed the design and production of a Mars Rover prototype. Contributed to electrical systems integration and testing. Won first prize in a poster competition among 10 teams for excellence in communicating technical design decisions.

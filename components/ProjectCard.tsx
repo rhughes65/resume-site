@@ -9,18 +9,18 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
   return (
-    <div 
+    <div
       className="group relative bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all cursor-pointer overflow-hidden flex flex-col"
       onClick={() => onClick(project)}
     >
       <div className="aspect-video w-full overflow-hidden border-b border-slate-800">
-        <img 
-          src={project.imageUrl} 
+        <img
+          src={project.imageUrl}
           alt={project.title}
           className="h-full w-full object-cover grayscale transition-all group-hover:grayscale-0 group-hover:scale-105"
         />
       </div>
-      
+
       <div className="p-6 flex-1 flex flex-col">
         <div className="flex justify-between items-center mb-4">
           <span className="mono text-[10px] text-amber-500/60 uppercase tracking-widest">
@@ -28,11 +28,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
           </span>
           <span className="mono text-[10px] text-slate-600">[{project.date}]</span>
         </div>
-        
+
         <h3 className="text-2xl font-black uppercase tracking-tighter mb-3 group-hover:text-amber-500 transition-colors">
           {project.title}
         </h3>
-        
+
         <p className="text-slate-400 text-sm uppercase font-bold leading-tight line-clamp-3 mb-6">
           {project.description}
         </p>
@@ -44,7 +44,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) =>
             ))}
           </div>
           <span className="mono text-[10px] text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity">
-            READ_MORE ->
+            READ_MORE -&gt;
           </span>
         </div>
       </div>
