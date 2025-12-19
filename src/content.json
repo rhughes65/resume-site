@@ -12,6 +12,16 @@
             ]
         },
         {
+            "company": "City of Berthoud",
+            "role": "Swim Instructor",
+            "location": "Berthoud, CO",
+            "period": "Sep 2024 – Present",
+            "description": [
+                "Responsible for teaching the City's Learn to Swim Program and ensuring the safety of participants in and around the water.",
+                "Faciliated swim lessons for a variety of ages and abilities, creating lesson plans and effectively communicating skills."
+            ]
+        },
+        {
             "company": "University of Colorado Boulder (Genetic Logic Lab)",
             "role": "Summer Undergraduate Research Intern",
             "location": "Boulder, CO",

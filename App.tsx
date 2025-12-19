@@ -166,13 +166,13 @@ const App: React.FC = () => {
               />
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight">
-              Engineering Student <span className="text-amber-500">//</span> Teacher <span className="text-amber-500">//</span> Coach
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-8 leading-tight">
+              Engineering Student
             </h2>
 
             <div className="max-w-2xl mx-auto">
-              <p className="text-xl md:text-2xl text-slate-400 font-medium uppercase tracking-tight">
-                Looking to make the world a better place.
+              <p className="text-xl md:text-2xl text-slate-400 font-medium italic tracking-tight">
+                "If you haven't failed yet, you haven't tried anything." <span className="not-italic text-sm block mt-2 text-slate-500">– Reshma Saujani</span>
               </p>
             </div>
 
