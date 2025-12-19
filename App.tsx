@@ -396,63 +396,22 @@ const App: React.FC = () => {
               <p className="mono text-slate-400 mt-2">Send a clear transmission.</p>
             </div>
 
-            <form
-              className="space-y-6"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                const name = formData.get('name');
-                const company = formData.get('company');
-                const message = formData.get('message');
+            <div className="flex flex-col gap-8">
+              <p className="text-2xl text-slate-300 uppercase font-bold leading-tight">
+                Interested in collaboration or have an opportunity?
+              </p>
 
-                const subject = `[Resume Site Contact] Message from ${name} (${company})`;
-                const body = `Name: ${name}\nCompany: ${company}\n\nMessage:\n${message}`;
-
-                window.open(`mailto:rosaliejanhughes@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
-              }}
-            >
-              <div className="space-y-2">
-                <label htmlFor="name" className="block mono text-xs uppercase text-slate-500">Identification / Name</label>
-                <input
-                  required
-                  id="name"
-                  name="name"
-                  type="text"
-                  className="w-full bg-slate-900 border border-slate-800 p-3 text-slate-200 focus:border-amber-500 focus:outline-none transition-colors"
-                  placeholder="ENTER NAME"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="company" className="block mono text-xs uppercase text-slate-500">Organization / Company</label>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  className="w-full bg-slate-900 border border-slate-800 p-3 text-slate-200 focus:border-amber-500 focus:outline-none transition-colors"
-                  placeholder="ENTER ORGANIZATION"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="block mono text-xs uppercase text-slate-500">Transmission / Message</label>
-                <textarea
-                  required
-                  id="message"
-                  name="message"
-                  rows={6}
-                  className="w-full bg-slate-900 border border-slate-800 p-3 text-slate-200 focus:border-amber-500 focus:outline-none transition-colors resize-none"
-                  placeholder="ENTER MESSAGE CONTENT..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-4 bg-amber-500 text-black font-black uppercase tracking-widest hover:bg-amber-400 transition-colors mt-8"
+              <a
+                href="mailto:rosaliejanhughes@yahoo.com"
+                className="w-full py-6 bg-amber-500 text-black font-black text-xl uppercase tracking-widest hover:bg-amber-400 transition-colors text-center block"
               >
-                Send Transmission
-              </button>
-            </form>
+                Email Me Directly
+              </a>
+
+              <div className="mono text-xs text-slate-500 uppercase mt-4">
+                // rosaliejanhughes@yahoo.com
+              </div>
+            </div>
           </div>
         )}
       </main>
