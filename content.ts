@@ -1,0 +1,94 @@
+
+import { Project, Experience, Education } from './types';
+
+export const EXPERIENCES: Experience[] = [
+  {
+    company: "Rapid Prototyping Laboratory",
+    role: "Rapid Prototyping Engineering Technician",
+    location: "Fort Collins, CO",
+    period: "November 2025 – Present",
+    description: [
+      "Drafted CAD files and executed CNC mill operations to manufacture precision components while managing work orders and scheduling.",
+      "Maintained facility operations across multiple rapid prototyping technologies including CNC machining, 3D printing, and system integration.",
+      "Developing electronic testing procedures and workstations to validate component functionality and ensure quality standards."
+    ]
+  },
+  {
+    company: "University of Colorado Boulder (Genetic Logic Lab)",
+    role: "Summer Undergraduate Research Intern",
+    location: "Boulder, CO",
+    period: "May 2024 – August 2024",
+    description: [
+      "Developed Python-based user interface that automated lab experiment generation and data entry workflows, eliminating manual Excel errors.",
+      "Optimized GitHub repositories and collaborated with graduate mentors to align software solutions with research objectives.",
+      "Engineered automated transmission system that converted experimental data into standardized test documentation."
+    ]
+  },
+  {
+    company: "Honeybee Robotics: A Blue Origin Company",
+    role: "Lead Test Engineering Technician",
+    location: "Longmont, CO",
+    period: "September 2022 – July 2023",
+    description: [
+      "Led 24/7 MicroSat test campaigns across all shifts, developing training manuals and visual management systems.",
+      "Operated thermal vacuum and environmental chambers (TVAC) with 100% safety compliance for SADA units.",
+      "Partnered with engineers to troubleshoot testing anomalies and resolve technical issues, reducing test delays."
+    ]
+  }
+];
+
+export const PROJECTS: Project[] = [
+  {
+    id: "sada-artemis",
+    title: "SADA MicroSAT Testing for Artemis II",
+    category: "Aerospace Testing",
+    date: "2023",
+    description: "Lead testing technician for Solar Array Drive Assemblies (SADA) utilized in NASA's Artemis II flight scheduled for 2026.",
+    longDescription: "As a test technician for Blue Origin's child company Honeybee Robotics, I tested Solar Array Drive Assemblies (SADA) units made for MicroSAT utilization. Most famous of these uses was NASA's Artemis II flight, scheduled for 2026. This involved rigorous thermal vacuum and environmental chamber cycles to ensure flight-ready reliability.",
+    tags: ["TVAC", "Aerospace", "SADA", "MicroSAT", "Testing"],
+    imageUrl: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: "mate-rov",
+    title: "MATE ROV Autonomous Control",
+    category: "Robotics",
+    date: "2023-2024",
+    description: "Electronics and Software Team Lead for autonomous underwater vehicle development.",
+    longDescription: "Led development of ROV autonomous control and machine learning capabilities. Designed electrical circuits, soldered components, and programmed robotic measurement systems using JavaScript, HTML, and Python for autonomous navigation.",
+    tags: ["Robotics", "JavaScript", "C++", "Circuit Design", "ML"],
+    imageUrl: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: "mars-rover",
+    title: "CSGC Mars Rover Prototype",
+    category: "Space Grant",
+    date: "2021",
+    description: "First prize winner in poster competition for Mars Rover design and production.",
+    longDescription: "Managed the design and production of a Mars Rover prototype. Contributed to electrical systems integration and testing. Won first prize in a poster competition among 10 teams for excellence in communicating technical design decisions.",
+    tags: ["Mars Rover", "CAD", "Project Management", "Electronics"],
+    imageUrl: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=80&w=800"
+  }
+];
+
+export const EDUCATION: Education[] = [
+  {
+    institution: "Colorado State University",
+    degree: "Bachelor of Science: Mechanical Engineering",
+    period: "Expected May 2027",
+    gpa: "3.2",
+    achievements: ["Society of Women Engineers", "Ram Rocketry"]
+  },
+  {
+    institution: "Front Range Community College",
+    degree: "Associate of Engineering Science",
+    period: "December 2024",
+    gpa: "3.3",
+    achievements: ["President's List Spring 2024", "Creative Writing Award – Poetry"]
+  }
+];
+
+export const SKILLS = {
+  Technical: ["SOLIDWORKS", "CNC Operation (HAAS)", "3D Printing", "TVAC Operations", "Circuit Design", "Soldering (J-STD-001)"],
+  Software: ["Python", "C++", "JavaScript", "HTML/CSS", "Arduino", "Git/GitHub", "CAD/CAM"],
+  Certifications: ["ANSI/ESD-S20.20-2021", "SOLIDWORKS Associate", "L1 High Power Rocket Certification (Expected)"]
+};
